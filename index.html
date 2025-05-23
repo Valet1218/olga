@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Приглашение</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffebf0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .text {
+      font-size: 2em;
+      color: #e75480;
+      margin-bottom: 40px;
+      animation: popIn 1s ease-out;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .button {
+      width: 100px;
+      height: 100px;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 15px;
+      font-size: 1.2em;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    .yes {
+      background-color: #77dd77;
+    }
+
+    .no {
+      background-color: #ff6347;
+    }
+
+    .response {
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: #9932cc;
+      text-align: center;
+      min-height: 50px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="text">Пойдешь со мной завтра гулять?)</div>
+
+  <div class="buttons">
+    <button class="button yes" onclick="respond('yes')">Да</button>
+    <button class="button no" onclick="respond('no')">Нет</button>
+  </div>
+
+  <div id="response" class="response"></div>
+
+  <script>
+    function respond(choice) {
+      const responseDiv = document.getElementById("response");
+      if (choice === 'yes') {
+        responseDiv.textContent = "Хе-хе ну все завтра ты моя";
+      } else if (choice === 'no') {
+        responseDiv.textContent = "В смысле неть я сказал да";
+      }
+    }
+  </script>
+
+</body>
+</html>
